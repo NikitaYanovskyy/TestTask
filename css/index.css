@@ -1,12 +1,16 @@
 @font-face {
-  font-family: MediumItalic;
-  src: url("../fonts/Roboto-MediumItalic.ttf");
+  font-family: Italic;
+  src: url("../fonts/Roboto-Italic.ttf");
 }
 
 .home {
   overflow: hidden;
   position: relative;
   height: 100vh;
+}
+
+.home .home_light_block, .home .home_dark_block {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -15,6 +19,40 @@
           align-items: center;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.home .home_light_block {
+  z-index: 1;
+}
+
+.home .home_light_block .home_logo {
+  background-color: #000;
+}
+
+.home .home_light_block .home_logo .home_logo_block {
+  background-color: #fff;
+}
+
+.home .home_dark_block {
+  -webkit-transition: -webkit-clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99);
+  transition: -webkit-clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99);
+  transition: clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99);
+  transition: clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99), -webkit-clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99);
+  z-index: 2;
+  -webkit-clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+          clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+.home .home_dark_block .home_logo {
+  background-color: #fff;
+}
+
+.home .home_dark_block .home_logo .home_logo_block {
+  background-color: black;
 }
 
 .home .canvas, .home .home_darken_background {
@@ -25,88 +63,95 @@
 .home .canvas {
   z-index: -1;
   width: 100%;
-  background-color: #e2e2e2;
+  background-color: #dddddd;
 }
 
 .home .home_darken_background {
-  z-index: 2;
-  right: -50%;
+  z-index: 1;
   width: 100%;
-  background-color: #000;
-  opacity: 0.9;
-  background-blend-mode: hard-light;
-  -webkit-transform: skew(-5deg);
-          transform: skew(-5deg);
+  background-color: #111111;
 }
 
-.developer_btn_wrapper {
+.home_symetery_block {
+  width: 150px;
+}
+
+.home_btn {
   position: relative;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
 
-.developer_btn_wrapper h3 {
+.home_btn h3 {
   position: absolute;
+  z-index: 1;
   top: 0;
   left: 0;
-  font-family: MediumItalic;
-  letter-spacing: 10px;
-  padding: 10px 20px;
+  font-family: Italic;
+  letter-spacing: 13px;
+  padding: 7px 20px;
 }
 
-.developer_btn_wrapper .developer_hover {
-  -webkit-transition: 0.3s cubic-bezier(0.54, 0.01, 0.46, 1);
-  transition: 0.3s cubic-bezier(0.54, 0.01, 0.46, 1);
+.home_btn .home_btn_hover {
+  -webkit-transition: -webkit-clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99);
+  transition: -webkit-clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99);
+  transition: clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99);
+  transition: clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99), -webkit-clip-path 0.6s cubic-bezier(0.11, 0.9, 0, 0.99);
   position: relative;
   z-index: 2;
+  -webkit-clip-path: polygon(3% 0, 3% 0, 0 100%, 0% 100%);
+          clip-path: polygon(3% 0, 3% 0, 0 100%, 0% 100%);
+  width: calc(100% - 13px);
 }
 
-.developer_btn_wrapper .developer_hover:before {
+.home_btn .home_btn_hover:before {
   content: '';
   position: absolute;
   z-index: -1;
   height: 100%;
-  width: calc(100% - 10px);
+  width: 100%;
   top: 0;
   left: 0;
   -webkit-transform: skew(-7deg);
           transform: skew(-7deg);
 }
 
-.developer_btn_wrapper:hover .developer_hover {
-  -webkit-clip-path: polygon(3% 0, 3% 0, 0 100%, 0% 100%);
-          clip-path: polygon(3% 0, 3% 0, 0 100%, 0% 100%);
+.home_black_btn {
+  margin-left: 60px;
 }
 
 .home_black_btn h3 {
   color: #000;
 }
 
-.home_black_btn .developer_hover {
+.home_black_btn .home_btn_hover {
   color: #fff;
 }
 
-.home_black_btn .developer_hover:before {
+.home_black_btn .home_btn_hover:before {
   background-color: #000;
+}
+
+.home_white_btn {
+  margin-left: -120px;
 }
 
 .home_white_btn h3 {
   color: #fff;
 }
 
-.home_white_btn .developer_hover {
+.home_white_btn .home_btn_hover {
   color: #000;
 }
 
-.home_white_btn .developer_hover:before {
+.home_white_btn .home_btn_hover:before {
   background-color: #fff;
 }
 
 .home_logo {
   position: relative;
   z-index: 1;
-  background-color: #000;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (1fr)[2];
@@ -120,7 +165,6 @@
 }
 
 .home_logo .home_logo_block {
-  background-color: #fff;
   height: 100%;
   width: 100%;
 }
