@@ -7,34 +7,24 @@ const homeLight = document.querySelector('.home_light_block');
 //Home animation
 var isDarkBlockClicked = false;
 var developerAnimTiming = 0.4
-const HoverOverLightBlock = () => {
-    whiteButton.style.clipPath = 'polygon(3% 0, 100% 0, 97% 100%, 0% 100%)';
-    if(isDarkBlockClicked){
-        blackButton.style.clipPath = 'polygon(12% 0, 12% 0, 0 100%, 0% 100%)';
-    }else{
-        blackButton.style.clipPath = 'polygon(3% 0, 3% 0, 0 100%, 0% 100%)';
-    }
-}
-const HoverOverDarkBlock = () => {
-    whiteButton.style.clipPath = 'polygon(3% 0, 3% 0, 0 100%, 0% 100%)';
-    blackButton.style.clipPath = 'polygon(3% 0, 100% 0, 97% 100%, 0% 100%)';
-}
+
 //Functions that store MouseOver styles
 const setHomeLightMouseOverStyles = ()=>{
+    whiteButton.style.clipPath = 'polygon(3% 0, 3% 0, 0 100%, 0% 100%)';
+    blackButton.style.clipPath = 'polygon(3% 0, 100% 0, 97% 100%, 0% 100%)';
     homeDark.style.clipPath = 'polygon(62% 0, 100% 0, 100% 100%, 58% 100%)';
     
 };
 const setHomeDarkMouseOverStyles = ()=>{
+    whiteButton.style.clipPath = 'polygon(3% 0, 100% 0, 97% 100%, 0% 100%)';
+    blackButton.style.clipPath = 'polygon(3% 0, 3% 0, 0 100%, 0% 100%)';
     homeDark.style.clipPath = 'polygon(42% 0, 100% 0, 100% 100%, 38% 100%)';
 };
 
 //Functions that apply MouseOver styles
 const addHomeMouseOver = ()=>{
     homeLight.addEventListener('mouseover', setHomeLightMouseOverStyles);
-    homeLight.addEventListener('mouseover', HoverOverLightBlock);
-
     homeDark.addEventListener('mouseover', setHomeDarkMouseOverStyles);
-    homeDark.addEventListener('mouseover', HoverOverDarkBlock);
 };
 const removeHomeMouseOver = ()=>{
     homeLight.removeEventListener('mouseover', setHomeLightMouseOverStyles);
@@ -95,17 +85,20 @@ const home_black_btn_Arr = document.getElementsByClassName('home_black_btn');
 const home_black_btn_hover_Arr = document.getElementsByClassName('home_btn_hover');
 const home_black_btn_hover_background_Arr = document.getElementsByClassName('home_btn_hover_background');
 homeDark.addEventListener('click',()=>{
-    isDarkBlockClicked = true
+    isDarkBlockClicked = true;
     removeHomeMouseOver();
     homeDark.style.transition = `clip-path ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99)`;
     homeDark.style.clipPath = 'polygon(12% 0, 100% 0, 100% 100%, 8% 100%)';
 
     //Home Developer btn
-        home_black_btn_Arr[0].style.transition = `transform ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99), width ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99)`;
-        home_black_btn_Arr[0].style.transform = 'translateX(-175px)';
-        home_black_btn_Arr[0].style.width = '47px';
-        home_black_btn_hover_Arr[0].style.width = '47px';
-        setTimeout(()=>{
-            home_black_btn_Arr[0].style.clipPath = 'polygon(12% 0, 100% 0, 88% 100%, 0% 100%)';
-        },800)
+    home_black_btn_Arr[0].style.transition = `transform ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99), width ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99)`;
+    home_black_btn_Arr[0].style.transform = 'translateX(-175px)';
+    
+    home_black_btn_Arr[0].style.width = '47px';
+    home_black_btn_hover_Arr[0].style.width = '48px';
+    blackButton.style.clipPath = 'polygon(10% 0, 10% 0, 0 100%, 0 100%)';
+
+    homeLight.addEventListener('mouseover', ()=>{
+        blackButton.style.clipPath = 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)';
+    });
 });
