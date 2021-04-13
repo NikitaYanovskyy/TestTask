@@ -1,6 +1,5 @@
-$letter_spacing: 13px;
-$easing: cubic-bezier(.11,.9,0,.99);
-$transitionTiming: 0.6s;
+$letter_spacing: 15px;
+
 .home{
     overflow: hidden;
     position: relative;
@@ -25,9 +24,9 @@ $transitionTiming: 0.6s;
         }
     }
     .home_dark_block{
-        transition: clip-path $transitionTiming $easing;
+        transition: clip-path $homeTransitionTiming $homeEasing;
         z-index: 2;
-        clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+        clip-path: polygon(52% 0, 100% 0, 100% 100%, 47.4% 100%);
         .home_logo{
             background-color: #fff;
             .home_logo_block{
@@ -40,16 +39,19 @@ $transitionTiming: 0.6s;
     .canvas, .home_darken_background{
         position: absolute;
         height: 100%;
+        cursor: pointer;
     }
     .canvas{
         z-index: -1;
         width: 100%;
-        background-color: rgb(221, 221, 221);
+        background-color: $lightBG;
     }
     .home_darken_background{
         z-index: 1;
         width: 100%;
-        background-color: rgb(17, 17, 17);
+        //temp color
+        background-color: rgb(85, 24, 24); //$darkBG;
+
     }
 }
 .home_symetery_block{
@@ -59,9 +61,11 @@ $transitionTiming: 0.6s;
 //other content
 .home_btn{
     position: relative;
-    width: fit-content;
+    cursor: pointer;
     h3{
         position: absolute;
+        overflow: hidden;
+        width: 100%;
         z-index: 1;
         top: 0;
         left: 0;
@@ -70,12 +74,13 @@ $transitionTiming: 0.6s;
         padding: 7px 20px;
     }
     .home_btn_hover{
-        transition: clip-path $transitionTiming $easing;
+        transition: clip-path $homeTransitionTiming $homeEasing;
         position: relative;
         z-index: 2;
+        // hiding clip path
         clip-path: polygon(3% 0, 3% 0, 0 100%, 0% 100%);    
         width: calc(100% - #{$letter_spacing});    
-        &:before{
+        .home_btn_hover_background{
             content: '';
             position: absolute;
             z-index: -1;
@@ -88,25 +93,27 @@ $transitionTiming: 0.6s;
     }
 }
 .home_black_btn{
+    width: calc(260px + #{$letter_spacing});
     margin-left: 60px;
     h3{
         color: #000;
     }
     .home_btn_hover{
         color: #fff;
-        &:before{
+        .home_btn_hover_background{
             background-color: #000; 
         }
     }
 }
 .home_white_btn{
+    width: calc(175px + #{$letter_spacing});
     margin-left: -120px;
     h3{
         color: #fff;
     }
     .home_btn_hover{
         color: #000;
-        &:before{
+        .home_btn_hover_background{
             background-color: #fff; 
         }
     }
@@ -114,6 +121,7 @@ $transitionTiming: 0.6s;
 
 //home logo
 .home_logo{
+    cursor: pointer;
     position: relative;
     z-index: 1;
     display: grid;

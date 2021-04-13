@@ -3,17 +3,52 @@
     font-family: Italic;
     src: url('../fonts/Roboto-Italic.ttf');
 }
+@font-face {
+    font-family: Bebas;
+    src: url('../fonts/BebasNeue-Regular.ttf');
+}
+@font-face {
+    font-family: Bold;
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+@font-face {
+    font-family: Thin;
+    src: url('../fonts/Roboto-Thin.ttf');
+}
+
+//colors
+$lightBG: rgb(221, 221, 221);
+$lightBGHover: rgb(143, 143, 143);
+$darkBG: rgb(17, 17, 17);
+
+//animation variables
+
+//home
+$homeEasing: cubic-bezier(.11,.7,0,.99);
+$homeTransitionTiming: 0.7s;
+
+//about
+$aboutEasing: cubic-bezier(.72,.01,.12,.99);
 
 //imports
 @import './home';
+@import './about';
+
 
 //general styles
 *{
+    &::selection{
+        background-color: transparent;
+    }
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 body{
+    overflow: hidden;
     height: 100vh;
     width: 100vw;
+}
+.visibility_hidden{
+    visibility: hidden;
 }
