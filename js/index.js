@@ -84,7 +84,7 @@ aboutButton.addEventListener('click', ()=>{
 const home_black_btn_Arr = document.getElementsByClassName('home_black_btn');
 const home_black_btn_hover_Arr = document.getElementsByClassName('home_btn_hover');
 const home_black_btn_hover_background_Arr = document.getElementsByClassName('home_btn_hover_background');
-
+const developer_btn_flex_wrapper = document.querySelector('#developer_btn_flex_wrapper');
 //Second animation part variables
 const artistGallery = document.querySelector('.artist_gallery_wrapper');
 const galleryItems = document.getElementsByClassName('gallery_item');
@@ -127,10 +127,10 @@ homeDark.addEventListener('click',()=>{
     homeDark.style.clipPath = 'polygon(200px 0, 100% 0, 100% 100%, 130px 100%)';
 
     //Home Developer btn
+    developer_btn_flex_wrapper.style.width = '150px';
     home_black_btn_Arr[0].style.transition = `transform ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99), width ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99)`;
-    home_black_btn_Arr[0].style.right = 'calc(94% - 30px)';
     home_black_btn_Arr[0].style.width = '47px';
-    home_black_btn_hover_Arr[0].style.width = '47px';
+    home_black_btn_hover_Arr[0].style.width = '48px';
     
     blackButton.style.clipPath = 'polygon(10% 0, 10% 0, 0 100%, 0 100%)';
 

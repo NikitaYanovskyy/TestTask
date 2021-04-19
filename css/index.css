@@ -27,14 +27,6 @@
 
 .home .home_light_block, .home .home_dark_block {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   width: 100%;
   height: 100%;
   top: 0;
@@ -89,13 +81,57 @@
   background-color: #551818;
 }
 
+.home_item_absolute_wrapper {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.home_item_absolute_wrapper.item_1, .home_item_absolute_wrapper.item_3 {
+  width: 40%;
+}
+
+.home_item_absolute_wrapper.item_1 {
+  left: 0;
+}
+
+.home_item_absolute_wrapper.item_2 {
+  width: 20%;
+  left: 40%;
+}
+
+.home_item_absolute_wrapper.item_3 {
+  left: 60%;
+}
+
+#developer_btn_flex_wrapper {
+  -webkit-transition: width 0.4s cubic-bezier(0.72, 0.01, 0.12, 0.99);
+  transition: width 0.4s cubic-bezier(0.72, 0.01, 0.12, 0.99);
+}
+
 .home_symetery_block {
   width: 150px;
 }
 
+.home_symetery_block.symetery_btn {
+  position: relative;
+  width: 275px;
+}
+
 .home_btn {
   position: absolute;
-  cursor: pointer;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+          transform: translate(-50%, 0);
 }
 
 .home_btn h3 {
@@ -117,8 +153,8 @@
   transition: clip-path 0.7s cubic-bezier(0.07, 0.99, 0.36, 0.99), -webkit-clip-path 0.7s cubic-bezier(0.07, 0.99, 0.36, 0.99);
   position: relative;
   z-index: 2;
-  -webkit-clip-path: polygon(20px 0, 20px 0, 0 100%, 0% 100%);
-          clip-path: polygon(20px 0, 20px 0, 0 100%, 0% 100%);
+  -webkit-clip-path: polygon(2% 0, 2% 0, 0 100%, 0% 100%);
+          clip-path: polygon(2% 0, 2% 0, 0 100%, 0% 100%);
   width: calc(100% - 15px);
 }
 
@@ -134,9 +170,12 @@
           transform: skew(-7deg);
 }
 
+.symetery_btn {
+  height: 37px;
+}
+
 .home_black_btn {
   width: calc(260px + 15px);
-  margin-left: 60px;
 }
 
 .home_black_btn h3 {
@@ -153,7 +192,6 @@
 
 .home_white_btn {
   width: calc(175px + 15px);
-  margin-left: -120px;
 }
 
 .home_white_btn h3 {

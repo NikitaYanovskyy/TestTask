@@ -10,9 +10,6 @@ $letter_spacing: 15px;
     width: 100%;
     .home_light_block, .home_dark_block{
         position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         width: 100%;
         height: 100%;
         top: 0;
@@ -58,14 +55,46 @@ $letter_spacing: 15px;
 
     }
 }
+.home_item_absolute_wrapper{
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+  
+}
+.home_item_absolute_wrapper.item_1, .home_item_absolute_wrapper.item_3{
+    width: 40%;
+}
+.home_item_absolute_wrapper.item_1{
+    left: 0;
+}
+.home_item_absolute_wrapper.item_2{
+    width: 20%;
+    left: 40%;
+}
+.home_item_absolute_wrapper.item_3{
+    left: 60%;
+}
+#developer_btn_flex_wrapper{
+    transition: width 0.4s cubic-bezier(0.72, 0.01, 0.12, 0.99);
+}
+
 .home_symetery_block{
     width: 150px;
 }
+.home_symetery_block.symetery_btn{
+    position: relative;
+    width: 275px;
+}
+
 
 //other content
 .home_btn{
     position: absolute;
-    cursor: pointer;
+    left: 50%;
+    transform: translate(-50%, 0);
     h3{
         position: absolute;
         overflow: hidden;
@@ -82,7 +111,8 @@ $letter_spacing: 15px;
         position: relative;
         z-index: 2;
         // hiding clip path
-        clip-path: polygon(20px 0, 20px 0, 0 100%, 0% 100%);    
+        clip-path: polygon(2% 0, 2% 0, 0 100%, 0% 100%);    
+
         width: calc(100% - #{$letter_spacing});    
         .home_btn_hover_background{
             content: '';
@@ -96,9 +126,11 @@ $letter_spacing: 15px;
         }
     }
 }
+.symetery_btn{
+    height: 37px;
+}
 .home_black_btn{
     width: calc(260px + #{$letter_spacing});
-    margin-left: 60px;
     h3{
         color: #000;
     }
@@ -111,7 +143,6 @@ $letter_spacing: 15px;
 }
 .home_white_btn{
     width: calc(175px + #{$letter_spacing});
-    margin-left: -120px;
     h3{
         color: #fff;
     }
