@@ -23,8 +23,12 @@ $darkBG: rgb(17, 17, 17);
 
 //animation variables
 
+
+//matrix 
+$matrixTransform: matrix(1, 0, -0.08715, 1, 0, 0);
+$matrixNormalize: matrix(1, 0, 0.08715, 1, 0, 0);
 //home
-$homeEasing: cubic-bezier(.11,.7,0,.99);
+$homeEasing:cubic-bezier(.07,.99,.36,.99);
 $homeTransitionTiming: 0.7s;
 
 //about
@@ -33,7 +37,7 @@ $aboutEasing: cubic-bezier(.72,.01,.12,.99);
 //imports
 @import './home';
 @import './about';
-
+@import './gallery';
 
 //general styles
 *{
@@ -44,11 +48,17 @@ $aboutEasing: cubic-bezier(.72,.01,.12,.99);
     padding: 0;
     box-sizing: border-box;
 }
-body{
+html, body, .whole_content_wrapper{
     overflow: hidden;
+    min-width: 100vw;
+    min-height: 100vh;
     height: 100vh;
     width: 100vw;
 }
+
 .visibility_hidden{
     visibility: hidden;
+}
+.matrix_normalize{
+    transform: $matrixNormalize;
 }

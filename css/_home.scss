@@ -1,9 +1,13 @@
 $letter_spacing: 15px;
+//home light block: z-index: 1
+//home dark block: z-index: 2
+//gallery: z-index: 3
 
 .home{
     overflow: hidden;
     position: relative;
-    height: 100vh;
+    height: 100%;
+    width: 100%;
     .home_light_block, .home_dark_block{
         position: absolute;
         display: flex;
@@ -60,7 +64,7 @@ $letter_spacing: 15px;
 
 //other content
 .home_btn{
-    position: relative;
+    position: absolute;
     cursor: pointer;
     h3{
         position: absolute;
@@ -78,7 +82,7 @@ $letter_spacing: 15px;
         position: relative;
         z-index: 2;
         // hiding clip path
-        clip-path: polygon(3% 0, 3% 0, 0 100%, 0% 100%);    
+        clip-path: polygon(20px 0, 20px 0, 0 100%, 0% 100%);    
         width: calc(100% - #{$letter_spacing});    
         .home_btn_hover_background{
             content: '';

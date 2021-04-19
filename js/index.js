@@ -3,22 +3,20 @@ const whiteButton = document.querySelector('#white_btn');
 const homeDark = document.querySelector('.home_dark_block');
 const homeLight = document.querySelector('.home_light_block');
 
-
 //Home animation
-var isDarkBlockClicked = false;
-var developerAnimTiming = 0.4
+var developerAnimTiming = 0.4;
 
 //Functions that store MouseOver styles
 const setHomeLightMouseOverStyles = ()=>{
-    whiteButton.style.clipPath = 'polygon(3% 0, 3% 0, 0 100%, 0% 100%)';
-    blackButton.style.clipPath = 'polygon(3% 0, 100% 0, 97% 100%, 0% 100%)';
-    homeDark.style.clipPath = 'polygon(62% 0, 100% 0, 100% 100%, 58% 100%)';
+    whiteButton.style.clipPath = 'polygon(2% 0, 2% 0, 0 100%, 0% 100%)';
+    blackButton.style.clipPath = 'polygon(2% 0, 100% 0, 98% 100%, 0% 100%)';
+    homeDark.style.clipPath = 'polygon(calc(50% + 150px) 0, 100% 0, 100% 100%, calc(50% + 100px) 100%)';
     
 };
 const setHomeDarkMouseOverStyles = ()=>{
-    whiteButton.style.clipPath = 'polygon(3% 0, 100% 0, 97% 100%, 0% 100%)';
-    blackButton.style.clipPath = 'polygon(3% 0, 3% 0, 0 100%, 0% 100%)';
-    homeDark.style.clipPath = 'polygon(42% 0, 100% 0, 100% 100%, 38% 100%)';
+    whiteButton.style.clipPath = 'polygon(2% 0, 100% 0, 98% 100%, 0% 100%)';
+    blackButton.style.clipPath = 'polygon(2% 0, 2% 0, 0 100%, 0% 100%)';
+    homeDark.style.clipPath = 'polygon(calc(50% - 100px) 0, 100% 0, 100% 100%, calc(50% - 150px) 100%)';
 };
 
 //Functions that apply MouseOver styles
@@ -32,7 +30,7 @@ const removeHomeMouseOver = ()=>{
 };
 
 //Initial call
-addHomeMouseOver()
+addHomeMouseOver();
 
 
 
@@ -81,24 +79,69 @@ aboutButton.addEventListener('click', ()=>{
 
 
 //Artist animation
+
+//First animation part variables
 const home_black_btn_Arr = document.getElementsByClassName('home_black_btn');
 const home_black_btn_hover_Arr = document.getElementsByClassName('home_btn_hover');
 const home_black_btn_hover_background_Arr = document.getElementsByClassName('home_btn_hover_background');
+
+//Second animation part variables
+const artistGallery = document.querySelector('.artist_gallery_wrapper');
+const galleryItems = document.getElementsByClassName('gallery_item');
+
+//Set gallery items hover events
+for (let item of galleryItems){
+
+    //Set items text bottom value to hide it
+    var textHeight = item.children[1].children[0].offsetHeight;
+    item.children[1].children[0].style.bottom = `-${textHeight}px`;
+
+    //Set events for items
+    item.addEventListener('mouseenter',()=>{
+        //reset values
+        console.log(textHeight)
+        item.children[1].children[0].style.transition = `unset`;
+        item.children[1].children[0].style.bottom = `-${textHeight}px`;
+        item.children[1].children[0].style.opacity = '1';
+
+
+        //animate text
+        setTimeout(()=>{
+            item.children[1].children[0].style.transition = 'bottom 0.3s cubic-bezier(.43,1,.6,.99)';
+            item.children[1].children[0].style.bottom = '0';
+        },0)
+        
+    });
+    item.addEventListener('mouseleave',()=>{
+        item.children[1].children[0].style.transition = 'bottom 0.3s cubic-bezier(.43,1,.6,.99), opacity 0.5s ease-in-out';
+        item.children[1].children[0].style.opacity = '0';
+    });
+};
+
 homeDark.addEventListener('click',()=>{
-    isDarkBlockClicked = true;
     removeHomeMouseOver();
+    //new animation for dark block
     homeDark.style.transition = `clip-path ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99)`;
-    homeDark.style.clipPath = 'polygon(12% 0, 100% 0, 100% 100%, 8% 100%)';
+    //homeDark.style.clipPath = 'polygon(calc(50% - 100px) 0, 100% 0, 100% 100%, calc(50% - 150px) 100%)';
+
+    homeDark.style.clipPath = 'polygon(200px 0, 100% 0, 100% 100%, 130px 100%)';
 
     //Home Developer btn
     home_black_btn_Arr[0].style.transition = `transform ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99), width ${developerAnimTiming}s cubic-bezier(.72,.01,.12,.99)`;
-    home_black_btn_Arr[0].style.transform = 'translateX(-175px)';
-    
+    home_black_btn_Arr[0].style.right = 'calc(94% - 30px)';
     home_black_btn_Arr[0].style.width = '47px';
-    home_black_btn_hover_Arr[0].style.width = '48px';
+    home_black_btn_hover_Arr[0].style.width = '47px';
+    
     blackButton.style.clipPath = 'polygon(10% 0, 10% 0, 0 100%, 0 100%)';
 
+    //Light block hover styles
     homeLight.addEventListener('mouseover', ()=>{
         blackButton.style.clipPath = 'polygon(10% 0, 100% 0, 90% 100%, 0 100%)';
     });
+    homeLight.addEventListener('mouseout', ()=>{
+        blackButton.style.clipPath = 'polygon(10% 0, 10% 0, 0% 100%, 0 100%)';
+    });
+
+    artistGallery.style.visibility = `visible`;
+    artistGallery.style.opacity = `1`;
 });
