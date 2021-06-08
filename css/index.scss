@@ -19,6 +19,7 @@
 //colors
 $lightBG: rgb(221, 221, 221);
 $lightBGHover: rgb(143, 143, 143);
+$lightGray: rgba(255, 255, 255, 0.7);
 $darkBG: rgb(17, 17, 17);
 
 //animation variables
@@ -28,7 +29,7 @@ $darkBG: rgb(17, 17, 17);
 $matrixTransform: matrix(1, 0, -0.08715, 1, 0, 0);
 $matrixNormalize: matrix(1, 0, 0.08715, 1, 0, 0);
 //home
-$homeEasing:cubic-bezier(.07,.99,.36,.99);
+$homeEasing: cubic-bezier(.07,.99,.36,.99);
 $homeTransitionTiming: 0.7s;
 
 //about
@@ -38,6 +39,7 @@ $aboutEasing: cubic-bezier(.72,.01,.12,.99);
 @import './home';
 @import './about';
 @import './gallery';
+@import './article';
 
 //general styles
 *{
@@ -47,6 +49,17 @@ $aboutEasing: cubic-bezier(.72,.01,.12,.99);
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-decoration: none;
+}
+
+.whiteCanvas{
+    display: none;
+    position: fixed;
+    z-index: 200;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 html, body, .whole_content_wrapper{
     overflow: hidden;
@@ -55,7 +68,6 @@ html, body, .whole_content_wrapper{
     height: 100vh;
     width: 100vw;
 }
-
 .visibility_hidden{
     visibility: hidden;
 }

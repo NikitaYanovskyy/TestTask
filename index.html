@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, user-scalable=no">
     <link rel="stylesheet" href="./css/index.css">
     <title>Document</title>
 </head>
@@ -49,36 +50,83 @@
             </div>
     
             <div class="home_dark_block">
-    
                 <!--Developer gallery content-->
                 <div class="artist_gallery_wrapper gallery">
+                    <!--Loader-->
+                    <div class="gallery_loader_wrapper">
+                        <div class="gallery_loader">
+                            <div class="loader_innerSquare"></div>
+                            <div class="loader_innerSquare"></div>
+                            <div class="loader_innerSquare"></div>
+                            <div class="loader_innerSquare"></div>
+                        </div>
+                    </div>
+
+                    <!--Gallery-->
                     <div class="gallery_content">
-                        <div class="gallery_card">
+                        <div class="gallery_cards_wrapper">
                             <div class="gallery_item">
                                 <!--Img will be here-->
-                                <img src="./images/test.jpg">
                                 <div class="gallery_text_block">
-                                    <h1>OMM</h1>
+                                    <h1>Live Coding</h1>
                                 </div>
                             </div>
                             <div class="gallery_item">
                                 <!--Img will be here-->
-                                <img src="./images/test.jpg">
                                 <div class="gallery_text_block">
-                                    <h1>OMM</h1>
+                                    <h1>1000 Lines</h1>
                                 </div>
                             </div>
                             <div class="gallery_item">
                                 <!--Img will be here-->
-                                <img src="./images/test.jpg">
+                                <div class="gallery_text_block">
+                                    <h1>OMM</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery_cards_wrapper">
+                            <div class="gallery_item">
+                                <!--Img will be here-->
+                                <div class="gallery_text_block">
+                                    <h1>Live Coding</h1>
+                                </div>
+                            </div>
+                            <div class="gallery_item">
+                                <!--Img will be here-->
+                                <div class="gallery_text_block">
+                                    <h1>1000 Lines</h1>
+                                </div>
+                            </div>
+                            <div class="gallery_item">
+                                <!--Img will be here-->
+                                <div class="gallery_text_block">
+                                    <h1>OMM</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="gallery_cards_wrapper">
+                            <div class="gallery_item">
+                                <!--Img will be here-->
+                                <div class="gallery_text_block">
+                                    <h1>Live Coding</h1>
+                                </div>
+                            </div>
+                            <div class="gallery_item">
+                                <!--Img will be here-->
+                                <div class="gallery_text_block">
+                                    <h1>1000 Lines</h1>
+                                </div>
+                            </div>
+                            <div class="gallery_item">
+                                <!--Img will be here-->
                                 <div class="gallery_text_block">
                                     <h1>OMM</h1>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                 </div>
-    
     
                 <!--Home dark block content-->
                 <div class="home_darken_background"></div>
@@ -212,7 +260,47 @@
                 </div>
             </div>
         </div>
+
+        <div class="article">
+            <div class="article_content_wrapper">
+                <div class="article_sticky_content">
+                    <div class="article_cross">
+                        <div class="article_cross_line"></div>
+                        <div class="article_cross_line"></div>
+                    </div>
+                    <div class="article_sticky_bottom_info">
+                        <a href="#">BUY PRINTS</a>
+                        <a href="#">BUY SCATEBOARDS</a>
+                        <div class="article_sticky_line"></div>
+                        <div class="article_icons">
+                            <img src="./assets/icons/heart.png">
+                            <img src="./assets/icons/share.png">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article_image_text">
+                    <div class="article_title_image">
+                        <!--Dynamic image-->
+                    </div>
+                    <div class="article_text_box">
+                        <h1>OMM</h1>
+                        <p>Interactive Audio Visual Experience Made with webGL</p>
+                    </div>
+                </div>
+                <div class="article_bottom_content">
+                    <!--Dynamic images-->
+                </div>
+                <div class="article_arrow_up">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+
+        <canvas class="whiteCanvas"></canvas>
     </div>
     <script src="./js/index.js"></script>
+    <script src="./js/canvas.js"></script>
 </body>
 </html>
